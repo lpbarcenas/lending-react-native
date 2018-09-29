@@ -25,7 +25,7 @@ export default class Login extends Component {
             <View>
                 <Image
                     style={styles.image}
-                    source={require('../assets/images/lending-logo.png')}
+                    source={require('../../assets/images/lending-logo.png')}
                 />
                 <TextInput style={styles.input} 
                     placeholder="Username"

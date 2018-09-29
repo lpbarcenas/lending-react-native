@@ -1,35 +1,27 @@
+/**
+ * Airbnb Clone App
+ * @author: Andy
+ * @Url: https://www.cubui.com
+ */
+
 import React, { Component } from 'react';
-import {
-  Platform,
-  StyleSheet,
-  Text,
-  View
-} from 'react-native';
+import { StatusBar, AppRegistry } from 'react-native';
+import { Provider } from 'react-redux';
+import { Root, configureStore} from './src/navigators/AppNavigator';
+import { NETWORK_INTERFACE } from './src/config';
 
-import Login from './components/Login';
+StatusBar.setBarStyle('light-content', true);
 
-const instructions = Platform.select({
-  ios: 'Press Cmd+R to reload,\n' +
-    'Cmd+D or shake for dev menu',
-  android: 'Double tap R on your keyboard to reload,\n' +
-    'Shake or press menu button for dev menu',
-});
-
-export default class App extends Component {
+class App extends Component {
   render() {
-    return (
-      <View style={styles.container}>
-        <Login />
-      </View>
+  	return (
+      <Provider store={configureStore({})}>
+          <Root />
+      </Provider>
     );
   }
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    paddingTop: 40,
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF',
-  }
-});
+AppRegistry.registerComponent('App', () => App);
+
+export default App;
